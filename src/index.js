@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
-import { runInThisContext } from 'vm';
 
 class SignupForm extends React.Component{
 
-  nextSlide(){
-    fullpageApi.moveSlideRight();
-  }
+  
 
   render(){
     return(
@@ -84,7 +81,7 @@ class SignupForm extends React.Component{
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
     </div>    
-    <p class="text-center">Have an account? <a href="#" id="moveTo" onClick={this.nextSlide}>Log In</a> </p>                                                                 
+    <p class="text-center">Have an account? <a href="#" id="moveTo">Log In</a> </p>                                                                 
 </form>
 </article>
 </div> 
