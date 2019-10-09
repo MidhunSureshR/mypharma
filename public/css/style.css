@@ -57,7 +57,9 @@ body{
 .padded{
     padding-bottom:3%;
 }
-
+#box-reg{
+    background-color:#034AA6;
+}
 .bounce-top{-webkit-animation:bounce-top .9s both;animation:bounce-top .9s both}
 
 /* ----------------------------------------------
