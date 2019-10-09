@@ -1,45 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
-
+import { runInThisContext } from 'vm';
 
 class SignupForm extends React.Component{
+
+  nextSlide(){
+    fullpageApi.moveSlideRight();
+  }
+
   render(){
     return(
 
-     <React.Fragment>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<React.Fragment>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+    
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
 
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
+  <div class="container">
+    <br/>  <p class="text-center">Signup with MYPHARMA today.</p>
+    <br/>
 
-
-<div class="container">
-<br/>  <p class="text-center">Signup with MYPHARMA today.</p>
-<hr/>
-
-
-
-
-
-<div class="card" id="box-reg">
-<article class="card-body mx-auto" style={{maxWidth: '400px'}}>
-	<h4 class="card-title mt-3 text-center">Create Account</h4>
-	<p class="text-center">Get started with your free account</p>
+    <div class="card" id="box-reg">
+      <article class="card-body mx-auto" style={{maxWidth: '400px'}}>
+	    <h4 class="card-title mt-3 text-center">Create Account</h4>
+	    <p class="text-center">Get started with your free account</p>
 	
-	<form>
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Full name" type="text"/>
-    </div> 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Email address" type="email"/>
-    </div> 
+	    <form>
+	      <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Full name" type="text"/>
+        </div> 
+
+        <div class="form-group input-group">
+    	    <div class="input-group-prepend">
+		       <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		      </div>
+          <input name="" class="form-control" placeholder="Email address" type="email"/>
+        </div> 
 
     <div class="form-group input-group">
 
@@ -82,7 +84,7 @@ class SignupForm extends React.Component{
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
     </div>    
-    <p class="text-center">Have an account? <a href="#">Log In</a> </p>                                                                 
+    <p class="text-center">Have an account? <a href="#" id="moveTo" onClick={this.nextSlide}>Log In</a> </p>                                                                 
 </form>
 </article>
 </div> 
@@ -98,6 +100,66 @@ class SignupForm extends React.Component{
     }
   }
 
+class LoginForm extends React.Component{
+    render(){
+      return(
+  
+  <React.Fragment>
+   
+  
+  
+    <div class="container">
+
+      
+      <br/>
+  
+      <div class="card" id="box-reg">
+
+        <article class="card-body mx-auto" style={{maxWidth: '400px'}}>
+
+          <h4 class="card-title mt-3 text-center">Login</h4>
+          <p class="text-center">If you already have an account.</p>
+      
+          <form>
+          
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+              <input name="" class="form-control" placeholder="Email address" type="email"/>
+            </div> 
+    
+          
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+              </div>
+              <input class="form-control" placeholder="Create password" type="password"/>
+            </div> 
+                                      
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>    
+
+            <p class="text-center">You can instead <a href="#">Register</a></p>   
+
+          </form>
+
+        </article>
+
+      </div> 
+  
+    </div> 
+  
+  
+  <br/><br/>
+  
+  </React.Fragment>
+      );
+        
+      }
+    }
+  
 
 const Fullpage = () => (
   <ReactFullpage
@@ -114,11 +176,22 @@ const Fullpage = () => (
           </div>
 
            <div className="section">
-              <div className="reg-page">
+
+              <div className="slide reg-page">
                     {/** Registration component will appear here */}
                     <SignupForm/>
               </div>
+
+              <div className="slide">
+                <LoginForm/>
+              </div>
+
           </div> 
+           <script>
+      
+  
+           </script> 
+          
 
         </ReactFullpage.Wrapper>
       );
